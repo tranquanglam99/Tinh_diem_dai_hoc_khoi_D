@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        form div {
+            margin: 20px;
+            font-size: 20px;
+        }
+        form input {
+            width: 100px;
+            height: 20px;
+            margin-left: 20px;
+        }
+        #van {
+            margin-left: 26px;
+        }
+        #anh {
+            margin-left: 26px;
+        }
+        #kv {
+            width: 110px;
+            height: 25px;
+            margin-left: 32px;
+        }
+        #count{
+            margin-left: 110px;
+        }
+        #result {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <form>
+        <div><h1>Tính điểm Đại Học khối D</h1></div>
+        <div>
+            <span>Môn Toán</span>
+            <input type="number" id="toan" value="">
+        </div>
+        <div>
+            <span>Môn Văn</span>
+            <input type="number" id="van" value="">
+        </div>
+        <div>
+            <span>Môn Anh</span>
+            <input type="number" id="anh" value="">
+        </div>
+        <div>
+            <span>Khu vực</span>
+            <select id="kv">
+                <option value="KV1">KV1</option>
+                <option value="KV2">KV2</option>
+                <option value="KV2-NT">KV2-NT</option>
+                <option value="KV3">KV3</option>
+            </select>
+        </div>
+        <div>
+            <button type="button" id="count" onclick="clickFunction()">Tính điểm</button>
+        </div>
+        <div><p id="result"></p></div>
+    </form>
+
+    <script>
+        function clickFunction() {
+            var toan = parseFloat(document.getElementById("toan").value);
+            var van = parseFloat(document.getElementById("van").value);
+            var anh = parseFloat(document.getElementById("anh").value);
+            var diem = toan + van + anh;
+            var kv = document.getElementById("kv").value;
+            switch (kv) {
+                case "KV1": 
+                    document.getElementById("result").innerText = "Tổng điểm ĐH khối D của bạn là: " + (diem  + 0.75)+ " điểm.";
+                    break;
+                case "KV2": 
+                    document.getElementById("result").innerText = "Tổng điểm ĐH khối D của bạn là: " + (diem + 0.5)  + " điểm.";
+                    break;
+                case "KV2-NT": 
+                    document.getElementById("result").innerText = "Tổng điểm ĐH khối D của bạn là: " + (diem + 0.25) + " điểm.";
+                    break;
+                case "KV3": 
+                    document.getElementById("result").innerText = "Tổng điểm ĐH khối D của bạn là: " + diem + " điểm.";
+                    break;
+            }
+        }
+    </script>
+
+</body>
+</html>
